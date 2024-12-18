@@ -1,0 +1,89 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+void printPerfectAndAmicableNumbers (int num);
+void analyzeDividors(int num, int& outCountDivs, int& outSumDivs);
+//The declaration above tells us we are calling the second two parameters
+by reference
+bool isPerfect(int num);
+int main() {
+int num = 300, countDivs, sumDivs;
+//We have to declare sumDivs and countDivs so we can put them as the
+parameters for analyzeDivisors. They do not need to have values yet. They
+will will inherit the values that outCountDivs and outSumDivs get,
+respectively.
+analyzeDividors(num,countDivs, sumDivs);
+cout<<"Part A Output"<<endl;
+cout<<"Sum = "<<sumDivs<<endl;
+cout<<"Count = "<<countDivs<<endl;
+cout<<"Part B Output"<<endl;
+if (isPerfect(num)){
+cout<<num<<" is a perfect number"<<endl;
+}
+else{
+cout<<num<<" is not a perfect number"<<endl;
+}
+cout<<"Part C Output"<<endl;
+printPerfectAndAmicableNumbers (num);
+return 0;
+}
+void analyzeDividors(int num, int& outCountDivs, int& outSumDivs){
+double sqrtNum = sqrt(num);
+int sum = 1, count = 1;
+//These values are initialized to 1 so we can start the for loop at 2
+for(int i = 2; i <= sqrtNum; i++){
+if(num % i == 0){
+if(i == sqrtNum){
+if(sqrtNum == int(sqrtNum)){
+sum += i;
+count++;
+}
+}
+else{
+sum += i + num/i;
+count+=2;
+}
+}
+}
+outCountDivs = count;
+outSumDivs = sum;
+//Since outCountDivs and outSumDivs are the second and third parameters,
+respectively, the values they get will be inherited by countDivs and
+sumDivs, respectively.
+}
+bool isPerfect(int num){
+int countDivs, sumDivs;
+//As was the case in the main function, these values are placeholders
+that will inherit the values that outCountDivs and outSumDivs get.
+analyzeDividors(num, countDivs, sumDivs);
+if (num == sumDivs){
+return true;
+}
+else{
+return false;
+}
+}
+void printPerfectAndAmicableNumbers (int num){
+//print perfect numbers
+cout<<"Perfect numbers between 2 and num: "<<endl;
+for (int i = 2; i < num; i++){
+if(isPerfect(i)){
+cout<<i<<" ";
+}
+}
+cout<<endl;
+cout<<"Pairs of amicable numbers between 2 and num: "<<endl;
+int isum, icount, jsum, jcount;
+//The variables above are all placeholders that will inherit the values
+of the function parameters. isum and icount will inherit the values of
+for(int i = 2; i < num; i++){
+analyzeDividors(i, isum, icount);
+//this gives us the values of
+for(int j = i + 1; j<= num; j++){
+analyzeDividors(j, jsum, jcount);
+if (isum == j && jsum == i){
+cout<<"("<<i<<", "<<j<< ") ";
+}
+}
+}
+}
