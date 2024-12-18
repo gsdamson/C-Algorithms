@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+void printDivisors(int num);
+int main()
+{
+int num = 100;
+printDivisors(num);
+}
+void printDivisors(int num){
+double sqrtNum = sqrt(num);
+for(int i =1; i <= sqrtNum/2; i++){
+if (num % i == 0){
+//100 / 2 = 50
+//100 % 2 = 0
+//if (num / i > sqrtNum && num % i == 0)
+cout<<i<<" ";
+}
+}
+cout<<sqrtNum<<" ";
+for(int i =(sqrtNum/2) - 1; i >= 1; i--){
+if (num % i == 0){
+cout<<num/i<<" ";
+}
+}
+}
