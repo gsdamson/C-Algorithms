@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main() {
+int number_of_quarters, number_of_dimes, number_of_nickels,
+number_of_pennies,
+total_value_scaled_up, dollars;
+double value_of_quarters, value_of_dimes, value_of_nickels,
+value_of_pennies, total_value, cents;
+cout<<"Please enter number of quarters"<<endl;
+cin>>number_of_quarters;
+cout<<"Please enter number of dimes"<<endl;
+cin>>number_of_dimes;
+cout<<"Please enter number of nickels"<<endl;
+cin>>number_of_nickels;
+cout<<"Please enter number of pennies"<<endl;
+cin>>number_of_pennies;
+value_of_quarters = number_of_quarters * 0.25;
+value_of_dimes = number_of_dimes * 0.1;
+value_of_nickels= number_of_nickels * 0.05;
+value_of_pennies = number_of_pennies * 0.01;
+total_value = value_of_quarters + value_of_dimes + value_of_nickels +
+value_of_pennies;
+total_value_scaled_up = total_value * 100;
+cents = total_value_scaled_up % 100;
+dollars = total_value / 1;
+cout<<"The total is $"<<dollars<<" dollars and "<<cents<< "
+cents"<<endl;
+return 0;
+}
