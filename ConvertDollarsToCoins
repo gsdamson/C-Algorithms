@@ -1,0 +1,21 @@
+
+
+#include <iostream>
+using namespace std;
+int main() {
+double dollars;
+int cents, dimes, remainder_1, quarters, nickels, remainder_2, pennies;
+cout<<"Please enter your amount in the format of dollars and cents
+separated by a space:"<<endl;
+cin>>dollars>>cents;
+quarters = dollars/.25;
+dimes = cents/10;
+remainder_1 = 37 % 10;
+nickels = remainder_1 / 5;
+remainder_2 = remainder_1 % 5;
+pennies = remainder_2 / 1;
+cout<<dollars<<" dollars and "<<cents<<" cents are:"<<quarters<<"
+quarters, "<<dimes<<" dimes, "<<nickels<<" nickels and "<<pennies<<"
+pennies."<<endl;
+return 0;
+}
